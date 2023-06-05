@@ -1,0 +1,55 @@
+# var expands to auto by default
+# is used for comments
+# Variables are c-style
+
+# Macro definitions
+define myMacro doStuff()
+# They are very c-ish
+
+class<type T> myClass 
+{
+    private i32 a, b, c, d;
+
+    constructor(i32 p_a, i32 p_b, i32 p_c, i32 p_d) # expanst to myClass in this scenario
+    {
+        self->a = p_a;
+        # But you can also do
+        this->b = p_b;
+        # with condifguration
+        self->c = p_c;
+        # also
+        this.d = p_d;
+    }
+
+    default() : nothing # you can add
+    # default is if no args are passed in and
+    # nothing simply expands to { }
+    # def nothing { }
+
+    # or also
+    default() {
+        self->a = 0;
+    }
+
+    # you can also do
+    private:
+        i32 d = 0;
+    # so there is no need to
+    # add a default that does something
+    # and also if you don't add a default
+    # there will be
+} # no need for ; at the end of classes
+
+fn -> (void) print<type T>(array<T> elements)
+{
+    for var i = 0; i < elements.size(); ++i # no braces
+    {
+        __cpp(std::cout << elements[i]);
+    }
+}
+
+fn main()
+{
+    print("Hello, World!", newl)
+    return success;
+}
