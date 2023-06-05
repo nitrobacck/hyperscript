@@ -5,7 +5,11 @@ RM := rm -r -f -rf
 CC := clang++
 LD = $(CC)
 
+LIB = ./lib
 BIN = ./bin
+
+TOMLDIR = $(LIB)/toml
+
 OUT = $(BIN)/hsc.out
 
 CCFLAGS  = -std=gnu++2b
@@ -18,6 +22,7 @@ CCFLAGS += -Wno-unused-parameter
 CCFLAGS += $(INCFLAGS)
 
 INCFLAGS  = -I./src
+INCFLAGS += -I$(TOMLDIR)
 
 LDFLAGS  = -lm -lstdc++
 
