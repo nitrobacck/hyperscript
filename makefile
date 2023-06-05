@@ -30,11 +30,10 @@ DEP = $(SRC:.cpp=.d)
 %.o: %.cpp
 	$(CC) -o $@ -MMD -c $< $(CCFLAGS)
 
-os:
-	touch src/ext/uname.h
-	echo #define OS $(UNAME_S)\n < src/ext/uname.h
+bin:
+	mkdir -p $(BIN)
 
-build: $(OBJ)
+build: bin $(OBJ)
 	$(LD) -o $(OUT) $(filter %.o, $^) $(LDFLAGS)
 
 run:
